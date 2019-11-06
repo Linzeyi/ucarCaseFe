@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     goBack () {
-
+      this.$emit('update:showEditDept', false)
     }
   }
 }

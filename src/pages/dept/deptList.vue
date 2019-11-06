@@ -1,8 +1,8 @@
 <template>
   <div class="deptList-wrapper">
     <el-container>
-      <edit-dept v-if="showNewDept"></edit-dept>
-      <el-main v-else>
+      <edit-dept :showEditDept.sync="showEditDept"></edit-dept>
+      <el-main v-if="!showEditDept">
         <el-row class="main-header">
           <el-col :span="12">
             <el-button-group>
@@ -103,7 +103,7 @@ export default {
   },
   data () {
     return {
-      showNewDept: false,
+      showEditDept: false,
       searchType: 'leaderName',
       searchVal: '',
       tableData: [
@@ -160,7 +160,7 @@ export default {
   methods: {
     handleBtn (func) {
       if (func === 'add') {
-        this.showNewDept = true
+        this.showEditDept = true
       }
     },
     handleSelect (item) {
